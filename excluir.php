@@ -10,7 +10,7 @@
     }
 
     //Consulta Noticias
-    $obNoticias = Noticias::getNoticias($_GET['id']);
+    $obNoticias = Noticias::getNoticia($_GET['id']);
 
     //Validação da Noticias
     if(!$obNoticias instanceof Noticias){
