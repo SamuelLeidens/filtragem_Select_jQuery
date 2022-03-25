@@ -1,7 +1,7 @@
 <?php 
     require __DIR__.'/vendor/autoload.php';
 
-    use \App\Entity\Vaga;
+    use \App\Entity\Noticias;
 
     //Validação do ID
     if(!isset($_GET['id']) || !is_numeric($_GET['id'])){
@@ -9,18 +9,18 @@
         exit;
     }
 
-    //Consulta vaga
-    $obVaga = Vaga::getVaga($_GET['id']);
+    //Consulta Noticias
+    $obNoticias = Noticias::getNoticias($_GET['id']);
 
-    //Validação da Vaga
-    if(!$obVaga instanceof Vaga){
+    //Validação da Noticias
+    if(!$obNoticias instanceof Noticias){
         header('location: index.php?status=error');
         exit;
     }
 
     //Validação do Post
     if(isset($_POST['excluir'])) {
-        $obVaga->excluir();
+        $obNoticias->excluir();
 
         header('location: index.php?status=success');
         exit;

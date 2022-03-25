@@ -17,7 +17,7 @@
          * Nome do banco de dados
          * @var string
         */
-        const NAME = 'first-crud';
+        const NAME = 'noticias';
 
         /**
          * Usuário do banco de dados

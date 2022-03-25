@@ -1,18 +1,19 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-define('TITLE', 'Cadastrar Vaga');
-use \App\entity\Vaga;
+define('TITLE', 'Cadastrar Noticias');
+use \App\entity\Noticias;
 
-$obvaga = new Vaga;
+$obNoticias = new Noticias;
 
 if (isset($_POST['titulo'], $_POST['descricao'], $_POST['status'])) {
-    $obvaga->titulo = $_POST['titulo'];
-    $obvaga->descricao = $_POST['descricao'];
-    $obvaga->status = $_POST['status'];
+    $obNoticias->titulo = $_POST['titulo'];
+    $obNoticias->descricao = $_POST['descricao'];
+    $obNoticias->status = $_POST['status'];
+    $obNoticias->autor = $_POST['autor'];
     // echo "<pre>"; print_r($_POST); echo "</pre>"; exit;
 
-    $obvaga->cadastrar();
+    $obNoticias->cadastrar();
 
     header('location: index.php?status=success');
     exit;

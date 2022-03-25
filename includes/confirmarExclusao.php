@@ -6,7 +6,7 @@
 
     <form method="post">
         <div class="form-group">
-            <p>Você deseja realmente excluir a vaga <strong><?php echo $obVaga->titulo; ?></strong></p>
+            <p>Você deseja realmente excluir a vaga <strong><?php echo $obNoticias->titulo; ?></strong></p>
         </div>
 
         <div class="forn-group">

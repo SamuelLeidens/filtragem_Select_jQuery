@@ -30,9 +30,9 @@ if ( isset( $_GET[ 'status' ] ) ) {
     <button class = 'btn btn-success'>Cadastrar</button>
     </a>
 
-    <?php if ( count( $Vaga ) == 0 ) {
+    <?php if ( count( $Noticias ) == 0 ) {
         ?>
-        <div class = 'alert alert-secondary mt-3'>Nenhuma vaga encontrada</div>
+        <div class = 'alert alert-secondary mt-3'>Nenhuma Noticias encontrada</div>
         <?php } else {
             ?>
             <table class = 'table bg-light mt-3'>
@@ -42,13 +42,14 @@ if ( isset( $_GET[ 'status' ] ) ) {
             <th>Título</th>
             <th>Descrição</th>
             <th>Data</th>
+            <th>Autor</th>
             <th>Status</th>
             <th>Ações</th> <!-- Para editar e excluir -->
             </tr>
             </thead>
 
             <tbody>
-            <?php foreach ( $Vaga as $key => $value ) {
+            <?php foreach ( $Noticias as $key => $value ) {
                 ?>
                 <tr>
                 <td><?php echo $value->id;
@@ -59,6 +60,9 @@ if ( isset( $_GET[ 'status' ] ) ) {
                 ?></td>
                 <td><?php echo date( 'd/m/y - H:i:s', strtotime( $value->data ) );
                 ?></td>
+                <td><?php echo $value->autor;
+                ?></td>
+                
                 <td><?php echo ( $value->status == 's' ? 'Ativo' : 'Inativo' );
                 ?></td>
                 <td>
