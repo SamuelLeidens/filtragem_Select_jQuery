@@ -21,17 +21,14 @@ if ( !$obNoticias instanceof Noticias ) {
 
 //Validacao do post
 if ( isset( $_POST[ 'titulo' ], $_POST[ 'descricao' ], $_POST[ 'autor' ], $_POST[ 'data' ], $_POST[ 'status' ] ) ) {
+    
     $obNoticias->titulo = $_POST[ 'titulo' ];
     $obNoticias->descricao = $_POST[ 'descricao' ];
     $obNoticias->autor = $_POST[ 'autor' ];
     $obNoticias->data = $_POST[ 'data' ];
     $obNoticias->status = $_POST[ 'status' ];
-
     $obNoticias->atualizar();
-    // echo '<pre>';
-    print_r( $this );
-    echo '</pre>';
-    exit;
+    // echo '<pre>';print_r( $this );echo '</pre>';exit;
 
     header( 'location: index.php?status=success' );
     exit;

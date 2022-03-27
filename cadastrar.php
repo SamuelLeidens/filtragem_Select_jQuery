@@ -2,18 +2,19 @@
 require __DIR__ . '/vendor/autoload.php';
 
 define('TITLE', 'Cadastrar Noticias');
+
 use \App\entity\Noticias;
 
 $obNoticias = new Noticias;
 
-if (isset($_POST['titulo'], $_POST['descricao'], $_POST['status'])) {
+if (isset($_POST['titulo'], $_POST['descricao'], $_POST['autor'],  $_POST['data'], $_POST['status'])) {
     $obNoticias->titulo = $_POST['titulo'];
     $obNoticias->descricao = $_POST['descricao'];
-    $obNoticias->status = $_POST['status'];
     $obNoticias->autor = $_POST['autor'];
-    // echo "<pre>"; print_r($_POST); echo "</pre>"; exit;
-
+    $obNoticias->status = $_POST['data'];
+    $obNoticias->autor = $_POST['status'];
     $obNoticias->cadastrar();
+    // echo "<pre>"; print_r($_POST); echo "</pre>"; exit;
 
     header('location: index.php?status=success');
     exit;
