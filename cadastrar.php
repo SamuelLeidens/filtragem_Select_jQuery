@@ -11,10 +11,11 @@ if (isset($_POST['titulo'], $_POST['descricao'], $_POST['autor'],  $_POST['data'
     $obNoticias->titulo = $_POST['titulo'];
     $obNoticias->descricao = $_POST['descricao'];
     $obNoticias->autor = $_POST['autor'];
-    $obNoticias->status = $_POST['data'];
-    $obNoticias->autor = $_POST['status'];
-    $obNoticias->cadastrar();
+    $obNoticias->status = $_POST['status'];
+    $obNoticias->data = $_POST['data'];
     // echo "<pre>"; print_r($_POST); echo "</pre>"; exit;
+    $obNoticias->cadastrar();
+    
 
     header('location: index.php?status=success');
     exit;

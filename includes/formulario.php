@@ -14,9 +14,10 @@
             <label>Descrição</label>
             <textarea class="form-control" required name="descricao" rows="5"><?php echo isset($obNoticias->descricao) ? $obNoticias->descricao : ''; ?></textarea>
         </div>
+        
         <div class="form-group">
             <label>Data</label>
-            <input type="date" required class="form-control" name="data" value="<?php echo isset($obNoticias->data) ? $obNoticias->data : ''; ?>">
+            <input type="date" required class="form-control" name="data" value="<?php echo isset($obNoticias->data) ? date('Y-m-d', strtotime($obNoticias->data)) : ''; ?>">
         </div>
         <div class="form-group">
             <label>Autor</label>
@@ -27,12 +28,12 @@
             <div>
                 <div class="form-check form-check-inline">
                     <label>
-                        <input type="radio" name="status" value="s" <?php echo isset($obNoticia->status) && $obNoticia->status == 's' ? 'checked' : ''; ?>>
+                        <input type="radio" name="status" value="s" <?php echo (isset($obNoticias->status) && $obNoticias->status == 's') ? 'checked' : ''; ?>>
                         Ativo
                     </label>
 
                     <label class="ml-3">
-                        <input type="radio" name="status" value="n" <?php echo isset($obNoticia->status) && $obNoticia->status == 'n' ? 'checked' : ''; ?>>
+                        <input type="radio" name="status" value="n" <?php echo (isset($obNoticias->status) && $obNoticias->status == 'n') ? 'checked' : ''; ?>>
                         Inativo
                     </label>
                 </div>
