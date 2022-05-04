@@ -35,44 +35,43 @@ if (isset($_GET['status'])) {
         <div class='alert alert-secondary mt-3'>Nenhuma Noticias encontrada</div>
     <?php } else {
     ?>
-        <table class='table bg-light mt-3'>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Título</th>
-                    <th>Descrição</th>
-                    <th>Data</th>
-                    <th>Autor</th>
-                    <th>Status</th>
-                    <th>Ações</th> <!-- Para editar e excluir -->
-                </tr>
-            </thead>
 
-            <tbody>
-                <?php foreach ($Noticias as $key => $value) {
-                ?>
-                    <tr>
-                        <td><?php echo $value->id; ?></td>
-                        <td><?php echo $value->titulo; ?></td>
-                        <td><?php echo $value->descricao; ?></td>
-                        <td><?php echo $value->data; ?></td>
-                        <td><?php echo $value->autor; ?></td>
-                        <td><?php echo ($value->status == 's' ? 'Ativo' : 'Inativo') ?></td>
-                        <td>
-                            <a href="editar.php?id=<?php echo $value->id; ?>">
-                                <button type='button' class='btn btn-primary'>Editar</button>
-                            </a>
 
-                            <a href="excluir.php?id=<?php echo $value->id; ?>">
-                                <button type='button' class='btn btn-danger'>Excluir</button>
-                            </a>
-                        </td>
-                    </tr>
-                <?php }
-                ?>
-            </tbody>
-        </table>
+<section class="mb-5">
+            <form method="get">
+                <div class="row">
+                    <div class="col">
+                        <label>Filtrar por ID</label>
+                        <select class="form-control" name="filtro" id="filtrar" value="">
+                            <?php foreach ($listaNoticia as $key => $value) { ?>
+                                <option value="<?php echo $value->id; ?>" <?php echo $obNoticias->id == $value->id ? "selected" : ''; ?>> <?php echo $value->id; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <?php foreach ($Noticias as $key => $value) {
+        ?>
+            <div class="card" style="width: 18rem; background: black;">
+                <div class="card-body">
+                    <p class="card-text">Id: <?php echo $value->id; ?></p><br>
+                    <p class="card-text">Titulo: <?php echo $value->titulo; ?></p><br>
+                    <p class="card-text">Descrição: <?php echo $value->descricao; ?></p><br>
+                    <p class="card-text">Data: <?php echo $value->data; ?></p><br>
+                    <p class="card-text">Autor: <?php echo $value->autor; ?></p><br>
+                    <p class="card-text">Status: <?php echo ($value->status == 's' ? 'Ativo' : 'Inativo') ?></p><br>
+                    <a href="editar.php?id=<?php echo $value->id; ?>">
+                        <button type='button' class='btn btn-primary'>Editar</button>
+                    </a>
+                    <a href="excluir.php?id=<?php echo $value->id; ?>">
+                        <button type='button' class='btn btn-danger'>Excluir</button>
+                    </a>
+                </div>
+            </div>
+        <?php }
+        ?>
     <?php }
     ?>
-
 </section>
