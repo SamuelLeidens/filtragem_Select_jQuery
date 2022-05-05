@@ -54,22 +54,24 @@ if (isset($_GET['status'])) {
 
         <?php foreach ($Noticias as $key => $value) {
         ?>
-            <div class="card" style="width: 18rem; background: black;">
-                <div class="card-body">
-                    <p class="card-text">Id: <?php echo $value->id; ?></p><br>
-                    <p class="card-text">Titulo: <?php echo $value->titulo; ?></p><br>
-                    <p class="card-text">Descrição: <?php echo $value->descricao; ?></p><br>
-                    <p class="card-text">Data: <?php echo $value->data; ?></p><br>
-                    <p class="card-text">Autor: <?php echo $value->autor; ?></p><br>
-                    <p class="card-text">Status: <?php echo ($value->status == 's' ? 'Ativo' : 'Inativo') ?></p><br>
-                    <a href="editar.php?id=<?php echo $value->id; ?>">
-                        <button type='button' class='btn btn-primary'>Editar</button>
-                    </a>
-                    <a href="excluir.php?id=<?php echo $value->id; ?>">
-                        <button type='button' class='btn btn-danger'>Excluir</button>
-                    </a>
+
+                <div class="card" style="width: 18rem; background: green;">
+                    <div class="card-body">
+                        <p class="card-text">Id: <?php echo $value->id; ?></p><br>
+                        <p class="card-text">Titulo: <?php echo $value->titulo; ?></p><br>
+                        <p class="card-text">Descrição: <?php echo $value->descricao; ?></p><br>
+                        <p class="card-text">Data: <?php echo $value->data; ?></p><br>
+                        <p class="card-text">Autor: <?php echo $value->autor; ?></p><br>
+                        <p class="card-text">Status: <?php echo ($value->status == 's' ? 'Ativo' : 'Inativo') ?></p><br>
+                        <a href="editar.php?id=<?php echo $value->id; ?>">
+                            <button type='button' class='btn btn-primary'>Editar</button>
+                        </a>
+                        <a href="excluir.php?id=<?php echo $value->id; ?>">
+                            <button type='button' class='btn btn-danger'>Excluir</button>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </div>        
         <?php }
         ?>
     <?php }

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+  $(document).ready(function(){
     $("#filtrar").on("change", function() {
       var value = $(this).val();
     //   console.log(value);
